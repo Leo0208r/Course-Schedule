@@ -59,7 +59,18 @@ def validateChoice(choice):
         print("Please enter 'yes' or 'no'.")
         return False
     return True
-    
+
+def validateColor(numberOfColor):
+    options=["1","2","3","4","5","6"]
+    colors=["yellow","greenlight","redlight","bluelight","salmon","purpleligh"]
+    while True:
+        if (numberOfColor not in options):
+            numberOfColor=input("Please enter a valid number option")
+        else:
+            color=colors[int(numberOfColor)]
+            break
+    return color
+        
     
     
 def applyCourseToBoard(course, startTime, endTime, day, colour):
@@ -122,7 +133,7 @@ while (True):
     day=input("Write the day of the week: ")
     if validateDay(day)==False:
         continue
-    colour=input("Choose a color for the course (yellow, greenlight, redlight, bluelight, salmon, purplelight): ")
+    colour=validateColor(input("Choose a color-option for the course (1-yellow,2-greenlight,3-redlight,4-bluelight,5-salmon, 6-purplelight): "))
     applyCourseToBoard(course, startTime, endTime, day, colour)
     choose=input("Do you want to add another course? (yes/no): ")
     if validateChoice(choose)==False:
